@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UserModule } from './user/user.module';
 import dbConfig from './config/db.config';
 
 @Module({
@@ -18,6 +19,7 @@ import dbConfig from './config/db.config';
         return await configService.get('database');
       },
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
